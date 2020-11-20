@@ -25,13 +25,19 @@ sealed class BankAccount :IDisposable
             {
                 swFile.WriteLine("Date/Time: {0}\tAmount:{1}", tran.When(), tran.Amount());
             }
+            
             swFile.Close();
             disposed = true;
             GC.SuppressFinalize(this);
+            
         }
+        
+    }
+    ~BankAccount()
+    {
+        Dispose();
     }
 
-    // Constructors
     public BankAccount()
     {
         accNo = NextNumber();
@@ -103,4 +109,5 @@ sealed class BankAccount :IDisposable
     {
         return nextNumber++;
     }
+ 
 }
