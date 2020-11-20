@@ -3,7 +3,7 @@ using System;
 
 class CreateAccount
 {
-	// Test Harness
+
 	static void Main()
 	{
 		using (BankAccount acc1 = new BankAccount())
